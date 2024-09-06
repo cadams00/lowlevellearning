@@ -4,7 +4,7 @@
 
 #define MAX_EMPLOYEES 1000
 
-struct employee_t
+struct __attribute__((__packed__))  employee_t
 {
 	int id;
 	char firstname[64];
