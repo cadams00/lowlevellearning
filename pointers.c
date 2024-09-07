@@ -30,8 +30,10 @@ int main(int argc, char const *argv[])
 	printf("%d\n", Chris.income);
 	printf("%d\n", Chris.staff);
 
+	// regular variable int created 
 	int x = 3;
 
+	// pointer to the location of variable x created 
 	int *pX = &x;
 
 	printf("%d\n", *pX);
