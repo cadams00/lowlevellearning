@@ -30,11 +30,11 @@ int main(int argc, char const *argv[])
 	printf("%d\n", Chris.income);
 	printf("%d\n", Chris.staff);
 
-	// int x = 3;
+	int x = 3;
 
-	// int *pX = &x;
+	int *pX = &x;
 
-	// printf("%d\n", *pX);
-	// printf("%p\n", pX);
+	printf("%d\n", *pX);
+	printf("%p\n", pX);
 	return 0;
 }					
