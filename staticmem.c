@@ -46,6 +46,7 @@ int main(int argc, char const *argv[])
 		printf("\n");
 	}
 
+	//free the memory and assign the struct? to null to make sure you cannot use it after the memory is cleared.
 	free(employees);
 	employees = NULL;
 
