@@ -14,6 +14,7 @@ struct database_header {
 int main(int argc, char const *argv[])
 {
     struct database_header head = {0};
+    struct stat dbStat = {0};
 
     if (argc != 2) {
         printf("Usage: %s <filename>\n", argv[0]);
@@ -35,7 +36,21 @@ int main(int argc, char const *argv[])
     printf("DB Version: %u\n", head.version);
     printf("DB Number of Employees: %u\n", head.employees);
     printf("DB File Length: %u\n", head.filelength);
-    
+
+    if (fstat(fd, &dbStat) < 0) {
+        perror("fstat");
+        close(fd);
+        return -1;
+    }
+
+    printf("DB File Length, reported by stat: %lu\n", dbStat.st_size);
+
+    if (dbStat.st_size != head.filelength) {
+        printf("HACKER DETECTED!\n");
+        close(fd);
+        return -2;
+    }
+
     close(fd);
     return 0;
 }
